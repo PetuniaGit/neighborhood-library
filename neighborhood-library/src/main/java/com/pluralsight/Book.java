@@ -1,10 +1,10 @@
 package com.pluralsight;
 
 public class Book {
-    int id;
-    String isbn;
+     int id;
+     String isbn;
     String title;
-    boolean isCheckOut;
+     boolean isCheckOut;
     String checkedOutTo;
 
 
@@ -56,12 +56,34 @@ public class Book {
         this.checkedOutTo = checkedOutTo;
     }
 
-    public static void checkOut(){
 
-    }
-    public static void checkIn(){
 
+
+    public  void checkOut(String name) {
+        // If user wants to checkout a book, set book's isCheckedOut to true and set checkedOutTo to user's name.
+        if (!isCheckOut) {
+            isCheckOut = true;
+            checkedOutTo = name;
+            System.out.println("The book is now checked out to " + name);
+            // If the book is already checked out, print error.
+        } else {
+            System.out.println("The book is already checked out.");
+        }
     }
+
+    // Create the checkIn method.
+    public void checkIn() {
+        // If user wants to check in a book, set the book's isCheckedOut to false and clear checkedOutTo.
+        if (isCheckOut) {
+            isCheckOut = false;
+            checkedOutTo = "";
+            System.out.println("The book is now checked in.Thank you.");
+            // If book has already been checked in, print error.
+        } else {
+            System.out.println("The book is already checked in.");
+        }
+    }
+
 
 
 }
