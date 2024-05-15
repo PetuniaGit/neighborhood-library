@@ -1,11 +1,11 @@
 package com.pluralsight;
 
 public class Book {
-     int id;
-     String isbn;
-    String title;
-     boolean isCheckOut;
-    String checkedOutTo;
+    private int id;
+     private String isbn;
+     private String title;
+     private boolean isCheckOut;
+   private String checkedOutTo;
 
 
 

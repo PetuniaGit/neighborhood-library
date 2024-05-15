@@ -1,10 +1,11 @@
 package com.pluralsight;
 
 import java.util.Scanner;
+/* This application allows the user to enter the library application and choose weather they want to check in a book or check ou a book.  */
 
 public class NeighborhoodLibrary {
     static Scanner scan=new Scanner(System.in);
-    static Book[] books=new Book[10];
+    static Book[] books=new Book[20];
     static int userInput;
     static String wantToCheckOut;
     static String wantToCheckIn;
@@ -14,7 +15,7 @@ public class NeighborhoodLibrary {
 
 
 
-
+      // Create a method to list the collection of books
     public static Book[] collectionOfBooks(){
 
         books[0]=new Book(1,"98364830497","The Great Gatsby",true,"F. Scott Fitzgerald");
@@ -40,6 +41,7 @@ public class NeighborhoodLibrary {
         return books;
 
     }
+    // create a method to let the user choose what they want to do in the library.
     public static void userInput (){
         System.out.println( " Welcome to the Library ,what would you like to do?");
         System.out.println( " Enter 1 to show available books.");
@@ -56,11 +58,12 @@ public class NeighborhoodLibrary {
             return;
         }
     }
+    // create a method that lists out the books that have not been checked out.
     public static void showAvailableBooks(){
         System.out.println("The Available books are:");
         for (Book book:books){
             if ((book != null) &&(!book.isCheckOut())){
-                System.out.println("Title: " + book.getTitle() + " - " + "ID: " + book.getId() + " - " + "ISBN: " + book.getIsbn());
+                System.out.println("Title: " + book.getTitle() + " , " + "ID: " + book.getId() + " , " + "ISBN: " + book.getIsbn());
             }
         }
         System.out.println(" Do you want to check out a booK? Enter yes or no. ");
@@ -77,12 +80,12 @@ public class NeighborhoodLibrary {
     }
 
 
-
+     // create a method that shows all the books that have been checked out incase the user wants to check one of them in.
     public static void showCheckedOutBooks(){
         System.out.println("These are the checked out books:");
         for (Book book:books){
             if ((book != null) && (book.isCheckOut())){
-                System.out.println("Title: " + book.getTitle() + " - " + "ID: " + book.getId() + " - " + "ISBN: " + book.getIsbn());
+                System.out.println("Title: " + book.getTitle() + " , " + "ID: " + book.getId() + " , " + "ISBN: " + book.getIsbn());
             }}
         System.out.println("What would you like to do?");
         System.out.println("Enter C to Check In A Book.");
@@ -98,7 +101,7 @@ public class NeighborhoodLibrary {
 
 
     }
-
+      // create a method that allows a user to check in a book.
     private static void checkInBook() {
         System.out.println("Please enter the ID of the book you want to check in from the available choices above:");
         returnBook=scan.nextInt();
@@ -112,12 +115,12 @@ public class NeighborhoodLibrary {
 
 
     }
-
+     // create a method that allows a user to check out a book
     private static void checkOutBook() {
         System.out.print("Please enter the ID of the book you want to check out from the available choices above: ");
        chooseBook= scan.nextInt();
 
-        // Create the variable.
+
 
 
         // Look for the book in the array using the entered ID.
@@ -129,9 +132,8 @@ public class NeighborhoodLibrary {
                 book.checkOut(name);
             }
 
+        }
 
-
-    }
 
 
 }
